@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Form validation</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+   background-image: url(data:image/jpeg;base64,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);
+      }
+      ::selection {
+        color: #fff;
+        background: #3bccec;
+      }
+      .wrapper {
+        width: 380px;
+        padding: 40px 30px 50px 30px;
+        background: #fff;
+        border-radius: 5px;
+        text-align: center;
+        box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.1);
+      }
+      .wrapper header {
+        font-size: 35px;
+        font-weight: 600;
+      }
+      .wrapper form {
+        margin: 40px 0;
+      }
+      form .field {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+      form .field.shake {
+        animation: shake 0.3s ease-in-out;
+      }
+      @keyframes shake {
+        0%,
+        100% {
+          margin-left: 0px;
+        }
+        20%,
+        80% {
+          margin-left: -12px;
+        }
+        40%,
+        60% {
+          margin-left: 12px;
+        }
+      }
+      form .field .input-area {
+        height: 50px;
+        width: 100%;
+        position: relative;
+      }
+      form input {
+        width: 100%;
+        height: 100%;
+        outline: none;
+        padding: 0 45px;
+        font-size: 18px;
+        background: none;
+        caret-color: #69d6ee;
+        border-radius: 5px;
+        border: 1px solid #bfbfbf;
+        border-bottom-width: 2px;
+        transition: all 0.2s ease;
+      }
+      form .field input:focus,
+      form .field.valid input {
+        border-color: #5372f0;
+      }
+      form .field.shake input,
+      form .field.error input {
+        border-color: #dc3545;
+      }
+      .field .input-area i {
+        position: absolute;
+        top: 50%;
+        font-size: 18px;
+        pointer-events: none;
+        transform: translateY(-50%);
+      }
+      .input-area .icon {
+        left: 15px;
+        color: #bfbfbf;
+        transition: color 0.2s ease;
+      }
+      .input-area .error-icon {
+        right: 15px;
+        color: #dc3545;
+      }
+      form input:focus ~ .icon,
+      form .field.valid .icon {
+        color: #4ddfc6;
+      }
+      form .field.shake input:focus ~ .icon,
+      form .field.error input:focus ~ .icon {
+        color: #bfbfbf;
+      }
+      form input::placeholder {
+        color: #bfbfbf;
+        font-size: 17px;
+      }
+      form .field .error-txt {
+        color: #dc3545;
+        text-align: left;
+        margin-top: 5px;
+      }
+      form .field .error {
+        display: none;
+      }
+      form .field.shake .error,
+      form .field.error .error {
+        display: block;
+      }
+      form .pass-txt {
+        text-align: left;
+        margin-top: -10px;
+      }
+      .wrapper a {
+        color: #5372f0;
+        text-decoration: none;
+      }
+      .wrapper a:hover {
+        text-decoration: underline;
+      }
+      form input[type="submit"] {
+        height: 50px;
+        margin-top: 30px;
+        color: #fff;
+        padding: 0;
+        border: none;
+        background: #1e484e;
+        cursor: pointer;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+      form input[type="submit"]:hover {
+        background: #2c52ed;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>Login Form</header>
+      <form action="#">
+        <div class="field email">
+          <div class="input-area">
+            <input type="text" placeholder="Email Address" />
+            <i class="icon fas fa-envelope"></i>
+            <i class="error error-icon fas fa-exclamation-circle"></i>
+          </div>
+          <div class="error error-txt">Email can't be blank</div>
+        </div>
+        <div class="field password">
+          <div class="input-area">
+            <input type="password" placeholder="Password" />
+            <i class="icon fas fa-lock"></i>
+            <i class="error error-icon fas fa-exclamation-circle"></i>
+          </div>
+          <div class="error error-txt">Password can't be blank</div>
+        </div>
+        <div class="pass-txt"><a href="#">Forgot password?</a></div>
+        <input type="submit" value="Login" />
+      </form>
+      <div class="sign-txt">Not yet member? <a href="./Task2-RegisterForm.html">Signup now</a></div>
+    </div>
+
+    <script>
+      const form = document.querySelector("form");
+      (eField = form.querySelector(".email")),
+        (eInput = eField.querySelector("input")),
+        (pField = form.querySelector(".password")),
+        (pInput = pField.querySelector("input"));
+
+      form.onsubmit = (e) => {
+        e.preventDefault(); //preventing from form submitting
+        //if email and password is blank then add shake class in it else call specified function
+        eInput.value == ""
+          ? eField.classList.add("shake", "error")
+          : checkEmail();
+        pInput.value == ""
+          ? pField.classList.add("shake", "error")
+          : checkPass();
+
+        setTimeout(() => {
+          //remove shake class after 500ms
+          eField.classList.remove("shake");
+          pField.classList.remove("shake");
+        }, 500);
+
+        eInput.onkeyup = () => {
+          checkEmail();
+        }; //calling checkEmail function on email input keyup
+        pInput.onkeyup = () => {
+          checkPass();
+        }; //calling checkPassword function on pass input keyup
+
+        function checkEmail() {
+          //checkEmail function
+          let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/; //pattern for validate email
+          if (!eInput.value.match(pattern)) {
+            //if pattern not matched then add error and remove valid class
+            eField.classList.add("error");
+            eField.classList.remove("valid");
+            let errorTxt = eField.querySelector(".error-txt");
+            //if email value is not empty then show please enter valid email else show Email can't be blank
+            eInput.value != ""
+              ? (errorTxt.innerText = "Enter a valid email address")
+              : (errorTxt.innerText = "Email can't be blank");
+          } else {
+            //if pattern matched then remove error and add valid class
+            eField.classList.remove("error");
+            eField.classList.add("valid");
+          }
+        }
+
+        function checkPass() {
+          //checkPass function
+          if (pInput.value == "") {
+            //if pass is empty then add error and remove valid class
+            pField.classList.add("error");
+            pField.classList.remove("valid");
+          } else {
+            //if pass is empty then remove error and add valid class
+            pField.classList.remove("error");
+            pField.classList.add("valid");
+          }
+        }
+
+        //if eField and pField doesn't contains error class that mean user filled details properly
+        if (
+          !eField.classList.contains("error") &&
+          !pField.classList.contains("error")
+        ) {
+          window.location.href = form.getAttribute("action"); //redirecting user to the specified url which is inside action attribute of form tag
+        }
+      };
+    </script>
+  </body>
+</html>
